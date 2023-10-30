@@ -9,4 +9,32 @@ repetitions(‘code’) // result: “COoDddEeee”
 repetitions(‘list’) // result: “LIiSssTttt”
 repetitions(function) // result: “FUuNnnTtttIiiiiOoooooNnnnnnn”
 
+1. creo función 'repetitions'
+
+
 */
+function repetitions(text) {
+
+
+    let textcopi = ''
+
+    for (let i = 0; i < text.length; i++) {
+        let caracter = text.charAt(i);
+
+        textcopi = textcopi + caracter.toUpperCase();
+
+        for (let j = 0; j < i; j++) {
+
+            textcopi = textcopi + caracter.toLowerCase();
+        }
+    }
+
+        return textcopi;
+}
+
+
+showContent(5, repetitions('code'));
+
+
+
+

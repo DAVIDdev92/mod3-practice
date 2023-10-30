@@ -8,4 +8,4 @@ function greeting(name) {
   return `Hello ${name}, how are you doing today?`;
 }
 
-showContent(1, greeting("John"));
+showContent(1, greeting("Paqui"));

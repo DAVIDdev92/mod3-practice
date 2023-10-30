@@ -21,4 +21,41 @@ Agrupa en un array las peliculas por categorias:
         }
     }
 ]
+------------------------
+[
+    {
+        drama: []
+    },
+    {
+        action: []
+    },
+    {
+        comedy: []
+    }
+]
+
 */
+
+function arrayMoviesFilteredByCategories() {
+
+    let arrayMoviesByCategories = [
+        { category: categories.drama, movies: [] },
+        { category: categories.action, movies: [] },
+        { category: categories.crime, movies: [] },
+        { category: categories.biography, movies: [] },
+        { category: categories.adventure, movies: [] },
+        { category: categories.comedy, movies: [] }
+    ]
+
+
+    for (let i = 0; i < arrayMoviesByCategories.length; i++) {
+        let arrayFiltByCategory = movies.filter(movie => movie.category == arrayMoviesByCategories[i].category)
+
+        arrayMoviesByCategories[i].movies = arrayFiltByCategory;
+
+    }
+
+    return arrayMoviesByCategories;
+}
+
+showContent(13, arrayMoviesFilteredByCategories());
