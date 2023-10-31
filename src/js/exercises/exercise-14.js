@@ -7,7 +7,6 @@ Muestra un array que solo incluya la pelicula mejor valorada de cada uno de esto
 */
 
 function filterByActor(movies, actors) {
-    console.log(movies.filter((movie) => movie.actors.includes(actors)))
     return movies.filter((movie) => movie.actors.includes(actors))
 
 }

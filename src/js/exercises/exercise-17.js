@@ -6,17 +6,35 @@ Dado una cadena de texto, comprueba si es un isograma o no y devuelve un mensaje
 
 1.texto a minúsculas y sin tildes.
 2.for para recorrer el texto y añadir a un array vacío la frecuencia con la que aparece cada letra.
-3.separar en letras y filter a todas las letras para saber el nº de cada una de ellas.
+3.comparar si la frecuencia con la que aparecen las distintas letras es la misma y mostrar un mensaje. 
 */
 
-function esIsograma(text){
+function esIsograma(text) {
 
-text = text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""); 
-    
-[{h:1}]
+    let textF = text.replaceAll(" ", "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
-for (let i = 0; i < textFormateado.length; i++) {
-    const letter = textFormateado[i];
-    
+    let letterCounter = {
+    };
+
+    for (let i = 0; i < textF.length; i++) {
+        const letter = textF.charAt(i);
+        
+        if (letterCounter[letter] !== undefined) {
+            letterCounter[letter] += 1;
+        } else {
+            letterCounter[letter] = 1
+        }
+        
+    }
+
+    const values = Object.values(letterCounter);
+
+    if (values.every(value => value === values[0])) {
+        return `La cadena '${text}' es un isograma`;
+    } else {
+        return `La cadena '${text}' no es un isograma`;
+    }
+
 }
-}
+
+showContent(17, esIsograma('Hola mundo'));

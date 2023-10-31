@@ -13,4 +13,31 @@ Ejemplo: "Hello world"
     d: 1,
 }
 Nota: siempre letras minúsculas y sin tildes (para simplificar)
+
+1.Texto en minúsculas y sin tildes.
+2.Objeto vacío para meter los datos.
+3.For para recorrer el texto y ver cuántas veces aparece cada letra.
+
 */
+
+function makeObjectFromAText(text) {
+
+    let letterCounter = {};
+
+    let textF = text.replaceAll(" ","").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    console.log(textF)
+    for (let i = 0; i < textF.length; i++) {
+        const letter = textF.charAt(i);
+        
+        if (letterCounter[letter] !== undefined) {
+            letterCounter[letter] += 1;
+        } else {
+            letterCounter[letter] = 1
+        }
+        
+    }
+
+    return letterCounter;
+}
+
+showContent(19, makeObjectFromAText('Roberto fue al bosque y cogió una manzana'));

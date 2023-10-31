@@ -27,7 +27,6 @@ let posiciones = [];
 for (let i = 0; i < textFormateado.length; i++) {
     
     let char = textFormateado.charAt(i);
-    console.log(char);
     posiciones.push(
         letterValue.findIndex(let => let === char) + 1
         );
